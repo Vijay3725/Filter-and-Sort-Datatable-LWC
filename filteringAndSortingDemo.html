@@ -1,0 +1,33 @@
+<template>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item size="3" padding="around-small">
+                <lightning-combobox
+                  label="Filter By"
+                  name="filterOptions"
+                  value={selectedFilter}
+                  options={filterOptions}
+                  placeholder="Select Filter"
+                  onchange={handleFilterOptionChange}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-input label="Search Contacts" placeholder="Search Contacts" onkeyup={handleFilter}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="3" alignment-bump="left" padding="around-small">
+                <lightning-combobox
+                  label="Sort By"
+                  name="sortedBy"
+                  value={sortedBy}
+                  options={filterOptions}
+                  onchange={sortHandler}>
+                </lightning-combobox>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-datatable
+         key-field="Id"
+         columns={columns}
+         data={filteredData}>
+        </lightning-datatable>
+    </lightning-card>
+</template>
